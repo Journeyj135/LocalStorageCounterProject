@@ -7,14 +7,65 @@
   </head>
 
     <body>
-      
-      <h1></h1>
-      <p></p>
-      <button onclick=""></button>
-      <button onclick=""></button>
-      <button onclick=""></button>
-      <button onclick=""></button>
+      <!-- Create HTML -->
 
+      <h1>Counter</h1>
+      <p id="count" style="font-size: 40px">0</p>
+
+      <button onclick="increaseCount()">+</button>
+      <button onclick="decreaseCount()">-</button>
+      <button onclick="resetCount()">Reset</button>
+      <button onclick="saveCount()">Save</button>
+      <button onclick="loadCount()">Load</button>
+
+      <!-- Create Script -->
+
+      <script>
+        // Declare counter
+        let counter = 0;
+
+        // Function to display counter
+        function updateCounter() {
+            document.getElementById('count').innerHTML = count;
+        }
+
+        // add an increase counter function
+        function increaseCounter() {
+
+            count++; // increases the counter
+            updateCounter(); // displays counter
+        }
+
+        // function to decrease the counter
+        function decreaseCounter() {
+
+            count--; // decrease counter
+            updateCounter(); // display counter
+        }
+
+        // Add a reset counter function
+        function reset() {
+
+            count = 0; // resets the counter
+            updateCounter(); // displays the counter
+        }
+
+        // Create a save counter function
+        function saveCounter() {
+
+            localStorage.setItem('count', count); // saves current count
+        }
+
+        // Create a load counter function
+        function loadCounter() {
+            let saved = localStorage.getItem('count'); // Grab saved count variable
+
+            if(saved !== null) {
+                count = Number(saved);
+            }
+            updateCount(); // displays saved number
+        }
+      </script>
     </body>
 
 </html>
